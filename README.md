@@ -68,6 +68,7 @@
         </td>
         <td>
         - 초기세팅, 공용 컴포넌트
+	- 사진 프린팅 결과 화면 GET
         </td>
     </tr>
     <tr align="center">
@@ -76,6 +77,7 @@
         </td>
         <td>
         - 공유 결과 뷰
+	- 사진 공유 화면 GET
         </td>
     </tr>
     <tr align="center">
@@ -84,6 +86,7 @@
         </td>
         <td>
         - 감정 선택 뷰
+	- 감정 선택 POST
         </td>
     </tr>
 </table>

@@ -24,12 +24,13 @@ export default function Result() {
   const handleNavigate = () => {
     navigate(`/`);
   };
-  const handleCopyClipBoard = async (text) => {
+  const handleCopyClipBoard = (text) => {
     try {
-      await navigator.clipboard.writeText(text);
-      alert("클립보드에 링크가 복사되었어요.");
+      navigator.clipboard.writeText(text).then(() => {
+        alert("클립보드에 링크가 복사되었어요.");
+      });
     } catch (err) {
-      console.log(err);
+      alert("링크 복사에 실패했습니다");
     }
   };
   // const baseUrl = `https://emotion-studio.netlify.app`; //배포 시 절대 경로 설정

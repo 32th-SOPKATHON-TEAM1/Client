@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import AnSsangCe from "../fonts/AnSsangCe.ttf";
 
 export const GlobalStyle = createGlobalStyle`
   :root {
@@ -40,6 +41,8 @@ export const GlobalStyle = createGlobalStyle`
     width: 36rem;
     height: 800px;
     padding: 0 1.2rem;
+
+    border-radius: 1.6rem;
   }
   menu, ol, ul {
     list-style: none;
@@ -107,4 +110,8 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: normal;
     font-style: normal;
 } */
+@font-face{
+  font-family: "AnSsangCe";
+  src:url(${AnSsangCe}) format("truetype");
+}
 `;

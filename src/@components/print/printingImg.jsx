@@ -2,9 +2,13 @@ import React, { useEffect, useState } from "react";
 import { keyframes, styled } from "styled-components";
 import imgSrc from "../../assets/image/polaroidImg.png";
 import printerFront from "../../assets/image/printerFront.png";
+import { useRecoilValue } from "recoil";
+import { responseEmotion } from "../../recoil/emotion";
 
 export default function PrintingImg() {
   const [isImg, setIsImg] = useState(false);
+  const data = useRecoilValue(responseEmotion);
+
   useEffect(() => {
     setTimeout(() => {
       setIsImg(true);
@@ -16,7 +20,7 @@ export default function PrintingImg() {
       {!isImg && <Front src={printerFront} alt="프린터앞" />}
       <PrintingImgWrapper>
         <Polaroid>
-          <Img src={imgSrc} alt="프린팅이미지" />
+          <Img src={data.imgUrl} alt="프린팅이미지" />
         </Polaroid>
       </PrintingImgWrapper>
     </>

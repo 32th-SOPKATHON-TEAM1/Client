@@ -21,7 +21,7 @@ const ProgressBarWrapper = styled.section`
 `;
 
 const ProgressBarBox = styled.article`
-  width: ${({ step }) => step * (33.6 / 4)}rem;
+  width: ${({ step }) => step * (33.6 / 5)}rem;
   height: 3px;
 
   background-color: blue;

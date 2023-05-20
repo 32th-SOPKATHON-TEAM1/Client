@@ -32,6 +32,7 @@ const St = {
     flex-direction: column;
     background: linear-gradient(180deg, rgba(250, 202, 79, 0) 0%, #B5DFF7 100%);
   `,
+  
   AskBox : styled.div`
     font-size: 16px;
     width: 272px;
@@ -55,7 +56,5 @@ const St = {
   display: flex;
   flex-direction: row;
   background-color: red;
-  
-    
   `
 }

@@ -4,22 +4,34 @@ import Button from '../common/button';
 
 
 export default function Question4({setStep}) {
+
   const moveToStep3 = () => {
     setStep(3);
   }
-
+  const moveToStep5 = () => {
+    setStep(5);
+  }
   return (
       <>
       <St.AskWrapper>
-        <St.AskName> Step4 </St.AskName>
+        <St.AskName> 
+          <P> 알려주셔서 고마워요. </P>
+          <P> 어떤 기쁨이었죠? </P>
+        </St.AskName>
         <St.QuestionContainer> 
           <St.Questions>질문1</St.Questions>
           <St.Questions>질문2</St.Questions>
           <St.Questions>질문3</St.Questions>
           <St.Questions>질문4</St.Questions>
+          <St.Questions>질문5</St.Questions>
+          <St.Questions>질문6</St.Questions>
+          <St.Questions>질문7</St.Questions>
+          <St.Questions>질문8</St.Questions>
         </St.QuestionContainer>
         <St.ButtonContainer>
-          <Button width={50} text="이전" onClick={moveToStep3}/>        </St.ButtonContainer>
+          <Button width={50} text="이전" onClick={moveToStep3}/>
+          <Button width={50} text="다음" onClick={moveToStep5}/>
+        </St.ButtonContainer>
       </St.AskWrapper>
       </>
   )

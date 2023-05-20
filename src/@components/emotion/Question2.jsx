@@ -11,21 +11,23 @@ export default function Question2({setStep}) {
   }
 
   return (
-      <>
-      <St.AskWrapper>
-        <St.AskName> Step2 </St.AskName>
-        <St.QuestionContainer> 
-          <St.Questions>질문1</St.Questions>
-          <St.Questions>질문2</St.Questions>
-          <St.Questions>질문3</St.Questions>
-          <St.Questions>질문4</St.Questions>
+    <>
+    <St.AskWrapper>
+      <St.AskBox>
+        <St.QuestionContainer>
+          <p> 김솝트 님, </p>
+          <p> 오늘 하루는 어땠나요? </p>
+          <p> 한 줄로 이야기해 주세요. </p>
+          <p> 이게 사진의 이름이 될 거예요.</p>
         </St.QuestionContainer>
-        <St.ButtonContainer>
-          <Button width={50} text="이전" onClick={moveToStep1} />
-          <Button width={50} text="다음" onClick={moveToStep3} />
-        </St.ButtonContainer>
-      </St.AskWrapper>
-      </>
+      </St.AskBox>
+      <St.AnswerName type='text'/>
+      <St.ButtonContainer>
+        <Button width={50} text="이전" onClick={moveToStep1}/>
+        <Button width={50} text="다음" onClick={moveToStep3}/>
+      </St.ButtonContainer>
+    </St.AskWrapper>
+    </>
   )
 }
 
@@ -33,21 +35,28 @@ const St = {
   AskWrapper : styled.section`
     display: flex;
     flex-direction: column;
+    background: linear-gradient(180deg, rgba(250, 202, 79, 0) 0%, #B5DFF7 100%);
   `,
-  AskName : styled.h1 `
-  font-size: 20px;
+  AskBox : styled.div`
+    font-size: 16px;
+    width: 272px;
+    height: 210px;
+    border: solid 2px #000000;
+    background-color: #fff;
+  `,
+
+  QuestionContainer : styled.article `
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0px 45px;
+  `,
+
+  AnswerName : styled.input`
     
   `,
-  QuestionContainer: styled.section `
-    display: flex;
-    flex-wrap: wrap;
-  `,
-  Questions: styled.article `
-  width: 50%;
-  border: black 2px solid;
-  padding: 2px;
-  `,
-    ButtonContainer : styled.div`
+
+  ButtonContainer : styled.div`
   display: flex;
   flex-direction: row;
   background-color: red;

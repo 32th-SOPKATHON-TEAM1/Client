@@ -4,6 +4,7 @@ import Landing from "./@pages/landing";
 import Loading from "./@pages/loading";
 import Emotion from "./@pages/emotion";
 import Print from "./@pages/print";
+import Result from "./@pages/result";
 import Share from "./@pages/share";
 
 export default function Router() {
@@ -14,6 +15,7 @@ export default function Router() {
         <Route path="/loading" element={<Loading />} />
         <Route path="/emotion" element={<Emotion />} />
         <Route path="/print" element={<Print />} />
+        <Route path="/result" element={<Result />} />
         <Route path="/:id" element={<Share />} />
       </Routes>
     </BrowserRouter>

@@ -92,5 +92,6 @@ const ShareButtonContainer = styled.div`
 
   width: 100%;
   margin: 60px 16px 12px 16px;
+  cursor: pointer;
 `;
 const ShareButton = styled.img``;

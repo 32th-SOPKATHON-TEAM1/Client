@@ -6,9 +6,10 @@ export default function PrintingImg(props) {
 
   return (
     <>
+      <p>{name}의 감정사진이에요</p>
       <PrintingImgWrapper>
         <Img src={imgSrc} alt="프린팅이미지" />
-        <p>{name}</p>
+        <p>{title}</p>
       </PrintingImgWrapper>
     </>
   );
@@ -16,11 +17,13 @@ export default function PrintingImg(props) {
 
 const PrintingImgWrapper = styled.section`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
   width: 30rem;
   height: 40rem;
+  padding-bottom: 8rem;
 
   border: 1px solid black;
 `;
@@ -28,7 +31,6 @@ const PrintingImgWrapper = styled.section`
 const Img = styled.img`
   width: 25rem;
   height: 25rem;
-  margin-bottom: 8rem;
 
   border: 1px solid black;
 `;

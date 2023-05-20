@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { keyframes, styled } from "styled-components";
 import imgSrc from "../../assets/image/polaroidImg.png";
 import printerFront from "../../assets/image/printerFront.png";
+import { useRecoilValue } from "recoil";
+import { responseEmotion } from "../../recoil/emotion";
 
 export default function PrintingImg() {
   const [isImg, setIsImg] = useState(false);

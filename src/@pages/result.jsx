@@ -32,7 +32,7 @@ export default function Result() {
       console.log(err);
     }
   };
-  const baseUrl = `https://emotion-studio.netlify.app/`; //배포 시 절대 경로 설정
+  const baseUrl = `https://emotion-studio.netlify.app`; //배포 시 절대 경로 설정
 
   // 사진 및 이름 상태 가져오기
   //   const id = useRecoilValue(); // recoil에서 id 받아오기
@@ -60,7 +60,7 @@ export default function Result() {
           <ShareButton
             src={resultBtn1}
             alt="내 사진 공유하기"
-            onClick={() => handleCopyClipBoard(`${baseUrl}${location.pathname}`)}></ShareButton>
+            onClick={() => handleCopyClipBoard(`${baseUrl}/${data.id}`)}></ShareButton>
           <ShareButton src={resultBtn2} alt="사진 다시 찍기" onClick={handleNavigate}></ShareButton>
         </ShareButtonContainer>
       </PrintingImgWrapper>

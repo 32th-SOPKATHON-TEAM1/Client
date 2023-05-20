@@ -40,7 +40,6 @@ export const GlobalStyle = createGlobalStyle`
     width: 36rem;
     height: 800px;
     padding: 0 1.2rem;
-    border: 1px solid skyblue;
   }
   menu, ol, ul {
     list-style: none;

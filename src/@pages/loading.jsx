@@ -3,9 +3,17 @@ import { styled } from "styled-components";
 import BackgroundImg from "../assets/image/loadingBackground.png";
 import { useRecoilValue } from "recoil";
 import { emotionData } from "../recoil/emotionsList";
+import { useNavigate } from "react-router-dom";
 
 export default function Loading() {
   const data = useRecoilValue(emotionData);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setTimeout(() => {
+      navigate("/print");
+    }, "4000");
+  }, []);
 
   return (
     <LoadingWrapper>

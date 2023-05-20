@@ -3,8 +3,10 @@ import { styled } from 'styled-components'
 import Button from '../common/button';
 import { useRecoilState } from 'recoil';
 import { emotionData } from '../../recoil/emotion';
-
-export default function Question1({setStep}) {
+import ask_frame from '../../assets/image/ask_frame.png'
+import next_btn from  '../../assets/image/next_btn.png'
+import previous_btn from  '../../assets/image/previous_btn.png'
+export default function Question1({setStep,setName}) {
   const [emotion, setEmotion]=useRecoilState(emotionData);
   const moveToStep2 = () => {
     setEmotion((prev)=>({...prev, name: nameRef.current.value})) 
@@ -16,6 +18,9 @@ export default function Question1({setStep}) {
     console.log(emotion)
   }, [emotion])
 
+  const getUserName = (e) => {
+    setName(e.target.value)
+  }
 
 
   return (
@@ -23,15 +28,13 @@ export default function Question1({setStep}) {
       <St.AskWrapper>
         <St.AskBox>
           <St.QuestionContainer>
-            <p> 반가워요. </p>
-            <p> 저는 당신이 오늘 느낀 감정을 한 장의 사진으로 전달해 드릴 사진사 로버트입니다. </p>
-            <p> 먼저 당신의 이름을 알려주시겠어요? </p>
+            <img src={ask_frame} />
           </St.QuestionContainer>
         </St.AskBox>
-        <St.AnswerName type='text' ref={nameRef}/>
+        <St.AnswerName onChange={getUserName} placeholder='이름을 입력해주세요' type='text' ref={nameRef}/>
         <St.ButtonContainer>
-          <Button width={50} text="이전"/>
-          <Button width={50} text="다음" onClick={moveToStep2}/>
+          <img className="prev_btn" src={previous_btn} />
+          <img className="next_btn" src={next_btn}  onClick={moveToStep2}  />
         </St.ButtonContainer>
       </St.AskWrapper>
       </>
@@ -42,31 +45,55 @@ const St = {
   AskWrapper : styled.section`
     display: flex;
     flex-direction: column;
-    background: linear-gradient(180deg, rgba(250, 202, 79, 0) 0%, #B5DFF7 100%);
+    justify-content: center;
+    height: 100%;
   `,
 
   AskBox : styled.div`
-    font-size: 16px;
-    width: 272px;
     height: 210px;
-    border: solid 2px #000000;
-    background-color: #fff;
+    width: 272px;
+    border-radius: 0px;
   `,
 
   QuestionContainer : styled.article `
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0px 45px;
+    > img { 
+      margin-left: 24px;
+      width: 272px;
+    }
   `,
 
   AnswerName : styled.input`
-    
+  box-sizing: border-box;
+  margin: 55px 0px;
+  padding: 10px;
+  
+  background: rgba(255, 255, 255, 0.5);
+
+  height: 50px;
+  width: 100%;
+  border-radius: 12px;
+
+  
+  border: 1px solid #FFFFFF;
+  box-shadow: 0px 0px 4px 3px rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
   `,
 
   ButtonContainer : styled.div`
   display: flex;
   flex-direction: row;
-  background-color: red;
+
+  .prev_btn {
+    height: 70;
+    width: 104px;
+    border-radius: 0px;
+
+  }
+  .next_btn {
+    height: 70px;
+    width: 220px;
+    border-radius: 0px;
+
+  }
   `
 }

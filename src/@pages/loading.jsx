@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { styled } from "styled-components";
 import BackgroundImg from "../assets/image/loadingBackground.png";
 import { useRecoilValue } from "recoil";

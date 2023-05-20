@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import BackgroundImg from "../assets/bomi/result_bg.svg";
 import ShareBtn from "../assets/bomi/share.svg";
-import getPhotoInfo from "../api/getPhotoInfo";
+import { getPhotoInfo } from "../api/getPhotoInfo";
 import testImg from "../assets/bomi/testImg.svg";
 
 export default function Share() {

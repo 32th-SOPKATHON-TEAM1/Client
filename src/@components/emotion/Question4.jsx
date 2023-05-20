@@ -11,11 +11,10 @@ export default function Question4({setStep}) {
       <St.AskWrapper>
         <St.AskName> Step4 </St.AskName>
         <St.QuestionContainer> 
-          <div>질문1</div>
-          <div>질문2</div>
-          <div>질문3</div>
-          <div>질문4</div>
-
+          <St.Questions>질문1</St.Questions>
+          <St.Questions>질문2</St.Questions>
+          <St.Questions>질문3</St.Questions>
+          <St.Questions>질문4</St.Questions>
         </St.QuestionContainer>
         <St.ButtonContainer>
           <button onClick={moveToStep3}> 이전 </button>
@@ -34,15 +33,14 @@ const St = {
   font-size: 20px;
     
   `,
-  QuestionContainer: styled.article `
+  QuestionContainer: styled.section `
     display: flex;
     flex-wrap: wrap;
-    > div {
-      width: 50%;
-      border: black 2px solid;
-      padding: 2px;
-    }
-    
+`,
+  Questions: styled.article `
+        width: 50%;
+        border: black 2px solid;
+        padding: 2px;
   `,
   ButtonContainer : styled.div`
   display: flex;

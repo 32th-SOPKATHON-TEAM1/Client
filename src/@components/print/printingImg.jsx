@@ -1,13 +1,12 @@
 import React from "react";
 import { keyframes, styled } from "styled-components";
 import imgSrc from "../../assets/image/polaroidImg.png";
+import printerFront from "../../assets/image/printerFront.png";
 
 export default function PrintingImg() {
-  // const imgSrc = "https://item.kakaocdn.net/do/dbcd799aac800f6a680f1d2b04cee5688f324a0b9c48f77dbce3a43bd11ce785";
-
   return (
     <>
-      <Printer />
+      <Front src={printerFront} alt="프린터앞" />
       <PrintingImgWrapper>
         <Polaroid>
           <Img src={imgSrc} alt="프린팅이미지" />
@@ -17,23 +16,27 @@ export default function PrintingImg() {
   );
 }
 
+const Front = styled.img`
+  position: absolute;
+  z-index: 3;
+
+  width: 33.6rem;
+`;
+
 const PrintImg = keyframes`
  from {
 		transform: translate(0, -30rem);
     }
     to {
-        transform: translate(0, 20rem);
+        transform: translate(0, 35rem);
     }
 `;
 
 const Printer = styled.div`
-  position: absolute;
-  z-index: 2;
+  /* position: absolute;
+  z-index: ; */
 
-  width: 33rem;
-  height: 7rem;
-
-  background-color: grey;
+  width: 33.6rem;
 `;
 
 const PrintingImgWrapper = styled.section`
@@ -54,10 +57,14 @@ const Polaroid = styled.article`
   height: 353px;
   padding-top: 20px;
 
+  position: absolute;
+  z-index: 2;
+
   /* width: 30rem;
   height: 40rem;
   padding-bottom: 8rem; */
 
+  background-color: white;
   border: 1px solid #cccccc;
 `;
 

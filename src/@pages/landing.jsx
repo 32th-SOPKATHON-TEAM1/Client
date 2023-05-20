@@ -1,5 +1,6 @@
 import React from "react";
+import ProgressBar from "../@components/common/progressBar";
 
 export default function Landing() {
-  return <div>landing</div>;
+  return <ProgressBar step={2} />;
 }

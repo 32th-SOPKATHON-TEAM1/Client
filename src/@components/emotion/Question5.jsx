@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import Button from "../common/button";
 import { useRecoilState } from "recoil";
-import { emotionData } from "../../recoil/emotion";
+import { emotionData, responseEmotion } from "../../recoil/emotion";
 import { Today } from "../../core/emotionsList";
 import axios from "axios";
 import { postEmotionData } from "../../api/emotion";
 
 export default function Question5({ setStep }) {
   const [emotion, setEmotion] = useRecoilState(emotionData);
+  const [responseData, setResponseData] = useRecoilState(responseEmotion);
 
   const moveToStep4 = () => {
     setStep(4);
@@ -33,8 +34,7 @@ export default function Question5({ setStep }) {
   //api 함수 호출해오는 함수 : api 통신하는 컴포넌트 안에서 사용
   async function lastEmotionData(newEmotions) {
     const response = await postEmotionData({ ...emotion, emotions: newEmotions });
-    console.log(response);
-    // setGallerys(response);
+    setResponseData(response);
   }
   return (
     <>

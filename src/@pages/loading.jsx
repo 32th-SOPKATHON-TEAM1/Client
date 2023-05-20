@@ -12,7 +12,7 @@ export default function Loading() {
   useEffect(() => {
     setTimeout(() => {
       navigate("/print");
-    }, "4000");
+    }, "2000");
   }, []);
 
   return (

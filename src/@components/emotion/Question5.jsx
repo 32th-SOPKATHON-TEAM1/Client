@@ -40,6 +40,7 @@ export default function Question5({ setStep }) {
   //api 함수 호출해오는 함수 : api 통신하는 컴포넌트 안에서 사용
   async function lastEmotionData(newEmotions) {
     const response = await postEmotionData({ ...emotion, emotions: newEmotions });
+    console.log(response);
     setResponseData(response);
   }
   return (

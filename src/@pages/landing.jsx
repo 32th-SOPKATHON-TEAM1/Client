@@ -1,6 +1,11 @@
 import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import styled from "styled-components";
+import landingBtn1 from "../assets/bomi/landing01.svg";
+import landingBtn2 from "../assets/bomi/landing02.svg";
+import BackgroundImg from "../assets/bomi/lading_bg.svg";
+import landingTitle from "../assets/bomi/landing_title.svg";
+import landingMain from "../assets/bomi/landing_main.svg";
 
 export default function Landing() {
   const location = useLocation();
@@ -22,50 +27,70 @@ export default function Landing() {
 
   return (
     <>
-      <St.LandingWrapper>
-        <St.LandingImg></St.LandingImg>
-        <St.LandingTitle>나의 마음 사진관</St.LandingTitle>
-        <St.LandingContent>속마음을 사진으로 담아내는 로버트의 사진관에 오신 것을 환영해요.</St.LandingContent>
-        <ShareButton text={`사진 인화하기`} onClick={handleNavigate} />
-        <ShareButton text={`URL 공유`} onClick={() => handleCopyClipBoard(`${baseUrl}${location.pathname}`)} />
-      </St.LandingWrapper>
+      <LandingPageWrapper>
+        <LandingMain src={landingMain} alt="랜딩 이미지" />
+        <LandingTitle src={landingTitle} alt="랜딩 타이틀" />
+        <LandingContent>
+          <span>속마음을 사진으로 담아내는</span>
+          <span>로버트의 사진관에 오신 것을 환영해요.</span>
+        </LandingContent>
+        <ShareButtonContainer>
+          <ShareButton src={landingBtn1} alt="사진 인화하기" onClick={handleNavigate}></ShareButton>
+          <ShareButton
+            src={landingBtn2}
+            alt="URL 공유"
+            onClick={() => handleCopyClipBoard(`${baseUrl}${location.pathname}`)}></ShareButton>
+        </ShareButtonContainer>
+      </LandingPageWrapper>
+      <Background />
     </>
   );
 }
+const Background = styled.div`
+  width: 360px;
+  height: 800px;
 
-const St = {
-  LandingWrapper: styled.section`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  margin-left: -1.4rem;
 
-    width: 360px;
-    height: 800px;
-  `,
-  LandingImg: styled.img``,
-  LandingTitle: styled.h1`
-    font-family: "Pretendard";
-    font-style: normal;
-    font-weight: 800;
-    font-size: 40px;
-    line-height: 48px;
-    /* identical to box height */
+  background-image: url(${BackgroundImg});
+`;
+const LandingPageWrapper = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+const LandingMain = styled.img`
+  width: 180px;
+  height: 200px;
+  margin-top: 100px;
+`;
+const LandingTitle = styled.img`
+  margin: 33px 0px 24px 0px;
+`;
+const LandingContent = styled.h3`
+  display: flex;
+  flex-direction: column;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 30px;
 
-    text-align: center;
+  text-align: center;
 
-    color: #000000;
-  `,
-  LandingContent: styled.h2`
-    font-family: "Pretendard";
-    font-style: normal;
-    font-weight: 800;
-    font-size: 40px;
-    line-height: 48px;
-    /* identical to box height */
+  color: #171819;
+`;
+const ShareButtonContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-    text-align: center;
-
-    color: #000000;
-  `,
-  
-};
+  width: 100%;
+  margin: 60px 16px 12px 16px;
+`;
+const ShareButton = styled.img``;

@@ -68,6 +68,7 @@
         </td>
         <td>
         - 초기세팅, 공용 컴포넌트
+	- 사진 프린팅 결과 화면 GET
         </td>
     </tr>
     <tr align="center">
@@ -76,6 +77,7 @@
         </td>
         <td>
         - 공유 결과 뷰
+	- 사진 공유 화면 GET
         </td>
     </tr>
     <tr align="center">
@@ -84,6 +86,7 @@
         </td>
         <td>
         - 감정 선택 뷰
+	- 감정 선택 POST
         </td>
     </tr>
 </table>
@@ -132,3 +135,48 @@
 | [ docs ]  | readMe 등 문서를 추가한 경우 |
 | [ test ]  | 테스트코드 작성 |
 | [ etc ]  | 이 외 잡일들~ |
+
+<br/>
+
+## 📁 폴더 구조
+
+```
+|-- 📁 node_modules
+|-- 📁 public
+|-- 📁 src
+	|-- 📁 @components
+	|-- 📁 @pages
+	|-- 📁 api
+	|-- 📁 assets
+			|-- 📁 icon
+			|-- 📁 image
+	|-- 📁 core    //목데이터 상수 파일
+	|-- 📁 recoil
+	|-- 📁 style
+			|-- globalStyle.js
+			|-- theme.js
+	|-- App.jsx
+	|-- main.jsx
+	|-- Router.jsx
+	|-- vite-env.d.js
+|-- .eslintrc.cjs
+|-- .gitignore
+|-- .prettierrc
+|-- index.html
+|-- package.json
+|-- README.md
+|-- tsconfig.json 
+|-- tsconfig.node.json
+|-- vite.config.js
+|-- yarn.lock
+```
+
+<br/>
+
+## 🛠️ 사용 기술 
+
+- JS
+- React
+- styled-component
+- react-router-dom
+- Recoil

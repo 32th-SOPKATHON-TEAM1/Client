@@ -14,9 +14,9 @@ export default function Question5({ setStep }) {
   const navigate = useNavigate();
   const [isBool, setIsBool] = useState(false);
 
-  useEffect(() => {
-    isBool && navigate("/loading");
-  }, [isBool]);
+  // useEffect(() => {
+  //   isBool &&
+  // }, [isBool]);
 
   const moveToStep4 = () => {
     setStep(4);
@@ -42,8 +42,9 @@ export default function Question5({ setStep }) {
   async function lastEmotionData(newEmotions) {
     const response = await postEmotionData({ ...emotion, emotions: newEmotions });
     console.log(response);
-    setResponseData(response);
+    setResponseData(response.data);
     setIsBool(!isBool);
+    response.code === 200 && navigate("/loading");
   }
   return (
     <>

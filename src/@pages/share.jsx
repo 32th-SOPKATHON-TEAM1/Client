@@ -1,53 +1,48 @@
 import React from "react";
-import { useEffect } from "react";
-<<<<<<< HEAD
-import { useState } from "react";
-import getPhotoInfo from "../api/getPhotoInfo";
-
-export default function Share() {
-  const [photos, setPhotos] = useState();
-  
-  async function fetchPhotoInfo() {
-    const response = await getPhotoInfo();
-    setPhotos(response);
-  }
-  
-  useEffect(() => {
-    fetchPhotoInfo();
-  }, []);
-  console.log(photos);
-
-  return <div>share</div>;
-=======
+import styled from "styled-components";
+import ShareHeader from "../@components/common/share/ShareHeader";
 import { useNavigate, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import ShareButton from "../@components/common/shareButton";
 
 export default function Share() {
-  // const location = useLocation();
+  const [photos, setPhotos] = useState();
 
-  // const handleCopyClipBoard = async (text) => {
-  //   try {
-  //     await navigator.clipboard.writeText(text);
-  //     alert("클립보드에 링크가 복사되었어요.");
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
-  // const baseUrl = `http://localhost:5173`; //배포 시 절대 경로 설정
   const navigate = useNavigate();
-
   const handleNavigate = () => {
     navigate(`/`);
   };
 
+  async function fetchPhotoInfo() {
+    const response = await getPhotoInfo();
+    setPhotos(response);
+  }
+  useEffect(() => {
+    fetchPhotoInfo();
+    console.log(photos);
+  }, []);
+
   return (
     <>
-      <ShareButton
-        text={`나도 사진 찍으러 가기`}
-        // onClick={() => handleCopyClipBoard(`${baseUrl}${location.pathname}`)}
-        onClick={handleNavigate}></ShareButton>
+      <St.ShareWrapper>
+        <ShareHeader headerText={`헤더입니다.`} />
+        <St.Img>이미지입니다.</St.Img>
+        <ShareButton
+          text={`나도 사진 찍으러 가기`}
+          // onClick={() => handleCopyClipBoard(`${baseUrl}${location.pathname}`)}
+          onClick={handleNavigate}></ShareButton>{" "}
+      </St.ShareWrapper>
     </>
   );
->>>>>>> ff67fdb1e14702646bb17308fbe449789a18aff1
 }
+const St = {
+  ShareWrapper: styled.section`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 66.7rem;
+  `,
+  Img: styled.div``,
+  Button: styled.button``,
+};

@@ -31,12 +31,12 @@ export default function Share() {
       <PrintingImgWrapper>
         <PolaroidUserName>
           {/* <p>${data.name}님,</p> */}
-          <p>{data?.name}님,</p>
+          <p>{data && data?.name}님,</p>
           <p>촬영한 사진이에요</p>
         </PolaroidUserName>
         <Polaroid>
-          <Img src={data?.imgUrl} alt="프린팅이미지" />
-          <Caption>{data?.title}</Caption>
+          <Img src={data && data?.imgUrl} alt="프린팅이미지" />
+          <Caption>{data && data?.title}</Caption>
         </Polaroid>
         <ShareButtonContainer>
           <ShareButton src={ShareBtn} alt="나도 사진 찍으러 가기" onClick={handleNavigate}></ShareButton>

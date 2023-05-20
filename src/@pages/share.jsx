@@ -30,7 +30,7 @@ export default function Share() {
         <ShareButton
           text={`나도 사진 찍으러 가기`}
           // onClick={() => handleCopyClipBoard(`${baseUrl}${location.pathname}`)}
-          onClick={handleNavigate}></ShareButton>{" "}
+          onClick={handleNavigate}/>
       </St.ShareWrapper>
     </>
   );

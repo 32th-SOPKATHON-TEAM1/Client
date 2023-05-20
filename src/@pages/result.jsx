@@ -130,7 +130,7 @@ const Caption = styled.span`
   font-family: "AnSsangCe";
   font-style: normal;
   font-weight: 400;
-  font-size: 70px;
+  font-size: 50px;
   line-height: 30px;
   /* identical to box height, or 43% */
 

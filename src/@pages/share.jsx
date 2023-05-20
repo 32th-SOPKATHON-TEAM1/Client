@@ -1,8 +1,8 @@
 import React from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import ShareHeader from "../@components/common/share/ShareHeader";
-import { useNavigate, useLocation } from "react-router-dom";
-import styled from "styled-components";
 import ShareButton from "../@components/common/shareButton";
 
 export default function Share() {

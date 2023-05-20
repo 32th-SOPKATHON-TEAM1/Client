@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
+import Button from "../common/button";
 
 export default function ShareBtn() {
   const location = useLocation();
@@ -18,9 +19,8 @@ export default function ShareBtn() {
 
   return (
     <>
-      <ShareButton onClick={() => handleCopyClipBoard(`${baseUrl}${location.pathname}`)}>공유하기</ShareButton>
+      <Button onClick={() => handleCopyClipBoard(`${baseUrl}${location.pathname}`)}>공유하기</Button>
     </>
   );
 }
 
-const ShareButton = styled.div``;

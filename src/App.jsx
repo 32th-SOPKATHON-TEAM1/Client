@@ -4,7 +4,7 @@ import { theme } from "./style/theme";
 import { RecoilRoot, atom, selector, useRecoilState, useRecoilValue } from "recoil";
 import Router from "./Router";
 
-const App = () => {
+export default function App() {
   return (
     <>
       <RecoilRoot>
@@ -15,6 +15,4 @@ const App = () => {
       </RecoilRoot>
     </>
   );
-};
-
-export default App;
+}

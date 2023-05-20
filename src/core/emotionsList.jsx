@@ -1,7 +1,7 @@
 export const detailEmotions = [
   { id: 0, emotion: "기쁨" },
   { id: 1, emotion: "두려움" },
-  { id: 2, emotion: "불쾌" },
+  { id: 2, emotion: "불쾌감" },
   { id: 3, emotion: "슬픔" },
 ];
 

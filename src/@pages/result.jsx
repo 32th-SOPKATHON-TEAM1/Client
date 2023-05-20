@@ -12,10 +12,11 @@ import testImg from "../assets/bomi/testImg.svg";
 import { useRecoilValue } from "recoil";
 import { responseEmotion } from "../recoil/emotion";
 
-
 export default function Result() {
   const [photos, setPhotos] = useState();
   const data = useRecoilValue(responseEmotion);
+
+  console.log(data);
 
   // 버튼 컴포넌트 라우팅
   const location = useLocation();
@@ -31,7 +32,7 @@ export default function Result() {
       console.log(err);
     }
   };
-  const baseUrl = `http://localhost:5173`; //배포 시 절대 경로 설정
+  const baseUrl = `https://emotion-studio.netlify.app/`; //배포 시 절대 경로 설정
 
   // 사진 및 이름 상태 가져오기
   //   const id = useRecoilValue(); // recoil에서 id 받아오기
@@ -48,7 +49,6 @@ export default function Result() {
     <>
       <PrintingImgWrapper>
         <PolaroidUserName>
-
           <p>{data.name}님,</p>
           <p>촬영한 사진이에요</p>
         </PolaroidUserName>
@@ -116,11 +116,9 @@ const Polaroid = styled.article`
 const Img = styled.img`
   position: absolute;
 
-
   margin: 20px 20px 0px 20px;
   width: 252px;
   height: 252px;
-
 `;
 const Caption = styled.span`
   position: absolute;

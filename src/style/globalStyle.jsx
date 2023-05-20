@@ -38,6 +38,7 @@ export const GlobalStyle = createGlobalStyle`
     line-height: 1;
 
     width: 36rem;
+    padding: 0 1.2rem;
     border: 1px solid skyblue;
   }
   menu, ol, ul {

@@ -13,6 +13,7 @@ const ButtonWrapper = styled.div`
   align-items: center;
 
   width: ${({ width }) => width}rem;
+  /* 여기서부터 변경하기 */
   height: 5rem;
 
   border: 1px solid pink;

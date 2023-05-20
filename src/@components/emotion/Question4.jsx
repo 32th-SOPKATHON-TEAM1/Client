@@ -71,13 +71,12 @@ const St = {
   background: linear-gradient(120.7deg, rgba(255, 255, 255, 0.8) 5.47%, rgba(255, 255, 255, 0) 100%),
   linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
   margin-bottom: 30px;
-    
-  `,
-  QuestionContainer: styled.section `
+  `, 
+  QuestionContainer: styled.section`
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 50px
-`,
+  margin-bottom: 50px;
+  `, 
   Questions: styled.button `
   height: 50px;
   width: 158px;
@@ -105,4 +104,4 @@ ButtonContainer : styled.div`
   border-radius: 0px;
 }
 `,
-}
+} 

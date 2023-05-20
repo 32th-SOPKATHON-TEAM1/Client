@@ -6,13 +6,13 @@ import Question4 from './Question4'
 
 export default function StepRenderer({step, setStep}) {
     switch (step) {
-        case '1':
-          return <Question1 setStep={setStep} />;
-        case '2':
+        case 2:
           return <Question2 setStep={setStep} />;
-        case '3':
+        case 3:
           return <Question3 setStep={setStep} />;
-        case '4':
+        case 4:
           return <Question4 setStep={setStep} />;
+        default :
+        return <Question1 setStep={setStep} />;
     }
 }

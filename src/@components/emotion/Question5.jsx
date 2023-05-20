@@ -42,7 +42,7 @@ export default function Question5({ setStep }) {
   async function lastEmotionData(newEmotions) {
     const response = await postEmotionData({ ...emotion, emotions: newEmotions });
     console.log(response);
-    setResponseData(response.data);
+    setResponseData(response);
     setIsBool(!isBool);
     response.code === 200 && navigate("/loading");
   }

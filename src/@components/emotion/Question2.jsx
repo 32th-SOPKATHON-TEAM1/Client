@@ -1,14 +1,22 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { styled } from 'styled-components';
 import Button from '../common/button';
+import { useRecoilState } from 'recoil';
+import { emotionData } from '../../recoil/emotion';
 
 export default function Question2({setStep}) {
+  const [emotion, setEmotion]=useRecoilState(emotionData);
+
   const moveToStep1 = () => {
     setStep(1);
   }
   const moveToStep3 = () => {
+    setEmotion((prev)=>({...prev, title: todayRef.current.value})) 
     setStep(3);
   }
+
+  
+  const todayRef=useRef(null);
 
   return (
     <>
@@ -21,7 +29,7 @@ export default function Question2({setStep}) {
           <p> 이게 사진의 이름이 될 거예요.</p>
         </St.QuestionContainer>
       </St.AskBox>
-      <St.AnswerName type='text'/>
+      <St.AnswerName type='text' ref={todayRef}/>
       <St.ButtonContainer>
         <Button width={50} text="이전" onClick={moveToStep1}/>
         <Button width={50} text="다음" onClick={moveToStep3}/>

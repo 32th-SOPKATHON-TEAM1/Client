@@ -7,6 +7,8 @@ import Question5 from './Question5'
 
 export default function StepRenderer({step, setStep}) {
     switch (step) {
+        case 1:
+          return <Question1 setStep={setStep} />;
         case 2:
           return <Question2 setStep={setStep} />;
         case 3:
@@ -15,7 +17,5 @@ export default function StepRenderer({step, setStep}) {
           return <Question4 setStep={setStep} />;
         case 5:
           return <Question5 setStep={setStep} />;
-        default :
-        return <Question1 setStep={setStep} />;
     }
 }

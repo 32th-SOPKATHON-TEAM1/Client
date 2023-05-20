@@ -1,25 +1,51 @@
-import React from 'react'
+import React, { useEffect, useState} from 'react'
 import { styled } from 'styled-components';
 import Button from '../common/button';
+import { useRecoilState } from 'recoil';
+import { emotionData } from '../../recoil/emotion';
+import {Today} from '../../core/emotionsList';
+import axios from 'axios';
+import { postEmotionData } from '../../api/emotion';
+
 
 
 export default function Question5({setStep}) {
-    const moveToStep4 = () => {
-      setStep(4);
-    }
-  const moveToStep6 = () => {
-    setStep(6);
-  }
+    const [emotion, setEmotion]=useRecoilState(emotionData);
 
+    const moveToStep4 = () => {
+        setStep(4);
+    }
+    const moveToStep6 = () => {
+        setStep(6);
+    }
+    
+const ClickedEmotionBtn = (e, id) => {
+    const newEmotions=[...emotion.emotions]
+    newEmotions.push(id)
+    console.log("newEmotions", newEmotions)
+    setEmotion((prev)=>({...prev, emotions: newEmotions})) 
+
+    lastEmotionData()
+    }
+
+  useEffect(() => {
+    console.log(emotion)
+  }, [emotion] )
+
+    //api 함수 호출해오는 함수 : api 통신하는 컴포넌트 안에서 사용
+    async function lastEmotionData() {
+        const response = await postEmotionData(emotion);
+        console.log(response)
+        // setGallerys(response);
+    }
   return (
       <>
       <St.AskWrapper>
         <St.AskName> Step5. 오늘의 일은 </St.AskName>
         <St.QuestionContainer> 
-          <St.Questions>평생 간직하고 싶어요.</St.Questions>
-          <St.Questions>친구들과 나누고 싶어요.</St.Questions>
-          <St.Questions>오늘까지만 기억할래요.</St.Questions>
-          <St.Questions>없던 일이었으면 좋겠어요</St.Questions>
+        {Today.map((item) => (
+        <St.Questions onClick={(e)=>ClickedEmotionBtn(e, item.id)} key={item.id} value={item.sentence}>{item.sentence}</St.Questions>
+          ))} 
         </St.QuestionContainer>
         <St.ButtonContainer>
           <Button width={50} text="이전" onClick={moveToStep4}/> 
@@ -43,7 +69,7 @@ const St = {
     display: flex;
     flex-wrap: wrap;
 `,
-  Questions: styled.article `
+  Questions: styled.button `
         width: 50%;
         border: black 2px solid;
         padding: 2px;

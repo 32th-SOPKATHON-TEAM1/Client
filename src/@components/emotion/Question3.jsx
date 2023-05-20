@@ -1,23 +1,49 @@
-import React, { useEffect, useState } from 'react'
+import React, {useEffect, useState } from 'react'
 import { styled } from 'styled-components';
 import Button from '../common/button';
+import { useRecoilState } from 'recoil';
+import { clickedEmotion, emotionData } from '../../recoil/emotion';
+import {HAPPY, SCARED, SORROWFUL, UNPLEASANT, detailEmotions} from '../../core/emotionsList';
 
 export default function Question3({setStep}) {
-  const [mood, setMood] = useState("");
+  const [emotion, setEmotion]=useRecoilState(emotionData);
+  const [clickedMood, setClickedMood]=useRecoilState(clickedEmotion);
+
+  const [isClicked, setIsClicked] = useState(false);
+
   const moveToStep2 = () => {
     setStep(2);
   }
-  const moveToStep4 = () => {
+  const moveToStep4 = (e) => {  
     setStep(4);
   }
 
-  const moveToDetailMood = (e) => {
-    setMood(e.target.value);
+  const ClickedEmotionBtn = (e, id) => {
+    setIsClicked(true);
+    const newEmotions=[...emotion.emotions]
+    newEmotions.push(id)
+    console.log("newEmotions", newEmotions)
+    setEmotion((prev)=>({...prev, emotions: newEmotions})) 
+    setClickedMood(e.target.value)
   }
 
   useEffect(() => {
-    console.log(mood)
-  }, [mood] )
+    ChangeName(clickedMood)
+  }, [clickedMood])
+
+  const ChangeName = (clickedMood) => {
+    switch (clickedMood) {
+        case "기쁨":
+          return setClickedMood(HAPPY)
+        case "두려움":
+          return setClickedMood(SCARED)
+        case "불쾌":
+          return setClickedMood(UNPLEASANT)
+        case "슬픔":
+          return setClickedMood(SORROWFUL)
+    }
+  }
+
 
 
   return (
@@ -25,14 +51,13 @@ export default function Question3({setStep}) {
     <St.AskWrapper>
       <St.AskName> Step3. 오늘 기분 어땠삼 </St.AskName>
       <St.QuestionContainer> 
-        <St.Questions value="Happy" onClick={(e) => moveToDetailMood(e)}>기쁨</St.Questions>
-        <St.Questions value="Scared" onClick={(e) => moveToDetailMood(e)}>두려움</St.Questions>
-        <St.Questions value="Bad" onClick={(e) => moveToDetailMood(e)}>불쾌</St.Questions>
-        <St.Questions value="Sad" onClick={(e) => moveToDetailMood(e)}>슬픔</St.Questions>
+        {detailEmotions.map((item) => (
+        <St.Questions onClick={(e)=>ClickedEmotionBtn(e, item.id)} key={item.id} value={item.emotion}>{item.emotion}</St.Questions>
+          ))} 
       </St.QuestionContainer>
       <St.ButtonContainer>
-        <Button width={50} text="이전" onClick={moveToStep2}/>
-        <Button width={50} text="다음" onClick={moveToStep4}/>
+        <Button isClicked={isClicked} width={50} text="이전" onClick={moveToStep2}/>
+        <Button isClicked={isClicked} width={50} text="다음" onClick={moveToStep4}/>
       </St.ButtonContainer>
     </St.AskWrapper>
     </>
@@ -56,10 +81,10 @@ Questions: styled.button `
       width: 50%;
       border: black 2px solid;
       padding: 2px;
+      background-color: ${props => props.isClicked ? 'red' : 'blue'};
 `,
 ButtonContainer : styled.div`
 display: flex;
 flex-direction: row;
-background-color: red;
 `
 }

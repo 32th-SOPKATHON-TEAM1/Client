@@ -1,13 +1,16 @@
 import React from "react";
-
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-import ShareHeader from "../@components/common/share/ShareHeader";
-import ShareButton from "../@components/common/shareButton";
+import BackgroundImg from "../assets/bomi/result_bg.svg";
+import ShareBtn from "../assets/bomi/share.svg";
+import getPhotoInfo from "../api/getPhotoInfo";
+import testImg from "../assets/bomi/testImg.svg";
 
 export default function Share() {
-  const [photos, setPhotos] = useState();
+  let { id } = useParams();
+  console.log(id);
+  const [data, setData] = useState();
 
   const navigate = useNavigate();
   const handleNavigate = () => {
@@ -15,35 +18,110 @@ export default function Share() {
   };
 
   async function fetchPhotoInfo() {
-    const response = await getPhotoInfo();
-    setPhotos(response);
+    const response = await getPhotoInfo(id);
+    setData(response);
   }
-  useEffect(() => {
-    fetchPhotoInfo();
-    console.log(photos);
-  }, []);
+
+  // useEffect(() => {
+  //   fetchPhotoInfo();
+  //   console.log(photos);
+  // }, []);
 
   return (
     <>
-      <St.ShareWrapper>
-        <ShareHeader headerText={`헤더입니다.`} />
-        <St.Img>이미지입니다.</St.Img>
-        <ShareButton
-          text={`나도 사진 찍으러 가기`}
-          // onClick={() => handleCopyClipBoard(`${baseUrl}${location.pathname}`)}
-          onClick={handleNavigate}></ShareButton>{" "}
-      </St.ShareWrapper>
+      <PrintingImgWrapper>
+        <PolaroidUserName>
+          {/* <p>${data.name}님,</p> */}
+          <p>김대덕님,</p>
+          <p>촬영한 사진이에요</p>
+        </PolaroidUserName>
+        <Polaroid>
+          <Img src={testImg} alt="프린팅이미지" />
+          <Caption>바다</Caption>
+        </Polaroid>
+        <ShareButtonContainer>
+          <ShareButton src={ShareBtn} alt="나도 사진 찍으러 가기" onClick={handleNavigate}></ShareButton>
+        </ShareButtonContainer>
+      </PrintingImgWrapper>
+      <Background />
     </>
   );
 }
-const St = {
-  ShareWrapper: styled.section`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 
-    height: 66.7rem;
-  `,
-  Img: styled.div``,
-  Button: styled.button``,
-};
+const Background = styled.div`
+  width: 360px;
+  height: 800px;
+
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  margin-left: -1.4rem;
+
+  background-image: url(${BackgroundImg});
+`;
+const PolaroidUserName = styled.h1`
+  margin-top: 80px;
+  margin-bottom: 32px;
+
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+  /* or 150% */
+
+  text-align: center;
+
+  /* black1 */
+
+  color: #171819;
+`;
+const PrintingImgWrapper = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+const Polaroid = styled.article`
+  position: relative;
+
+  width: 292px;
+  height: 353px;
+  background: #ffffff;
+
+  border: 1px solid #8a9299;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
+`;
+
+const Img = styled.img`
+  position: absolute;
+
+  margin: 20px 20px 0px 20px;
+  width: 252px;
+  height: 252px;
+`;
+const Caption = styled.span`
+  position: absolute;
+  width: 100%;
+
+  margin: 285px 187px 38px 20px;
+
+  font-family: "AnSsangCe";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 70px;
+  line-height: 30px;
+  /* identical to box height, or 43% */
+
+  color: #000000;
+`;
+const ShareButtonContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  margin: 60px 16px 12px 16px;
+`;
+const ShareButton = styled.img``;

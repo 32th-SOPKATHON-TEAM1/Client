@@ -11,8 +11,6 @@ export default function Print() {
   const [isImg, setIsImg] = useState(false);
   const navigate = useNavigate();
 
-  console.log(data);
-
   useEffect(() => {
     setTimeout(() => {
       setIsImg(true);

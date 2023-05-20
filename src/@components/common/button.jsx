@@ -7,7 +7,7 @@ export default function Button(props) {
   return <ButtonWrapper width={width}>{text}</ButtonWrapper>;
 }
 
-const ButtonWrapper = styled.div`
+const ButtonWrapper = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;

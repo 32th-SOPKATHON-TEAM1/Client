@@ -36,6 +36,9 @@ export const GlobalStyle = createGlobalStyle`
     display: block;
     touch-action: manipulation;
     line-height: 1;
+
+    width: 36rem;
+    border: 1px solid skyblue;
   }
   menu, ol, ul {
     list-style: none;
@@ -67,6 +70,9 @@ export const GlobalStyle = createGlobalStyle`
     font-family: sans-serif;
     font-size: 62.5%;
     user-select: none;
+
+    display: flex;
+    justify-content: center;
 
   }
   ul, li {

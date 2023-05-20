@@ -6,7 +6,7 @@ export async function postEmotionData(emotion) {
     console.log("post", emotion);
     const data = await axios.post(`https://api.mindphoto.kro.kr/post`, emotion);
     console.log(data);
-    return data;
+    return data.data;
   } catch (error) {
     console.log(error);
   }

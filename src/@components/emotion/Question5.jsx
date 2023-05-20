@@ -12,10 +12,11 @@ export default function Question5({ setStep }) {
   const [emotion, setEmotion] = useRecoilState(emotionData);
   const [responseData, setResponseData] = useRecoilState(responseEmotion);
   const navigate = useNavigate();
+  const [isBool, setIsBool] = useState(false);
 
   useEffect(() => {
-    navigate("/loading");
-  }, [responseData]);
+    isBool && navigate("/loading");
+  }, [isBool]);
 
   const moveToStep4 = () => {
     setStep(4);
@@ -42,6 +43,7 @@ export default function Question5({ setStep }) {
     const response = await postEmotionData({ ...emotion, emotions: newEmotions });
     console.log(response);
     setResponseData(response);
+    setIsBool(!isBool);
   }
   return (
     <>

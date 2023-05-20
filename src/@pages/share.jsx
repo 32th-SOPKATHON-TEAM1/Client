@@ -18,7 +18,7 @@ export default function Share() {
   };
 
   async function fetchPhotoInfo() {
-    const response = await getPhotoInfo(id);
+    const response = await getPhotoInfo(Number(id));
     setData(response);
   }
 

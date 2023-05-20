@@ -1,24 +1,5 @@
 import React from "react";
 import { useEffect } from "react";
-<<<<<<< HEAD
-import { useState } from "react";
-import getPhotoInfo from "../api/getPhotoInfo";
-
-export default function Share() {
-  const [photos, setPhotos] = useState();
-  
-  async function fetchPhotoInfo() {
-    const response = await getPhotoInfo();
-    setPhotos(response);
-  }
-  
-  useEffect(() => {
-    fetchPhotoInfo();
-  }, []);
-  console.log(photos);
-
-  return <div>share</div>;
-=======
 import { useNavigate, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import ShareButton from "../@components/common/shareButton";
@@ -49,5 +30,4 @@ export default function Share() {
         onClick={handleNavigate}></ShareButton>
     </>
   );
->>>>>>> ff67fdb1e14702646bb17308fbe449789a18aff1
 }

@@ -1,5 +1,7 @@
 import React from 'react'
 import { styled } from 'styled-components';
+import Button from '../common/button';
+
 
 export default function Question4({setStep}) {
   const moveToStep3 = () => {
@@ -17,8 +19,7 @@ export default function Question4({setStep}) {
           <St.Questions>질문4</St.Questions>
         </St.QuestionContainer>
         <St.ButtonContainer>
-          <button onClick={moveToStep3}> 이전 </button>
-        </St.ButtonContainer>
+          <Button width={50} text="이전" onClick={moveToStep3}/>        </St.ButtonContainer>
       </St.AskWrapper>
       </>
   )

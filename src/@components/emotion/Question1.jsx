@@ -1,19 +1,19 @@
 import React from 'react'
 import { styled } from 'styled-components'
+import Button from '../common/button';
 
 export default function Question1({setStep}) {
   const moveToStep2 = () => {
     setStep(2);
   }
-
   return (
       <>
       <St.AskWrapper>
         <St.AskName> Q.당신의 이름은? </St.AskName>
         <St.AnswerName type='text'/>
         <St.ButtonContainer>
-          <button> 이전 </button>
-          <button onClick={() => moveToStep2()}> 다음 </button>
+          <Button width={50} text="이전"/>
+          <Button width={50} text="다음" onClick={moveToStep2}/>
         </St.ButtonContainer>
       </St.AskWrapper>
       </>

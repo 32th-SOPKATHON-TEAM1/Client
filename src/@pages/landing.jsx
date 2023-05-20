@@ -23,7 +23,7 @@ export default function Landing() {
       console.log(err);
     }
   };
-  const baseUrl = `http://localhost:5173`; //배포 시 절대 경로 설정
+  const baseUrl = `emotion-studio.netlify.app`; //배포 시 절대 경로 설정
 
   return (
     <>

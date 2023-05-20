@@ -2,9 +2,9 @@ import React from "react";
 import { styled } from "styled-components";
 
 export default function Button(props) {
-  const { text, width } = props;
+  const { text, width, onClick } = props;
 
-  return <ButtonWrapper width={width}>{text}</ButtonWrapper>;
+  return <ButtonWrapper width={width} onClick={onClick}>{text}</ButtonWrapper>;
 }
 
 const ButtonWrapper = styled.button`

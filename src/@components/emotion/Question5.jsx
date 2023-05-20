@@ -6,10 +6,16 @@ import { emotionData, responseEmotion } from "../../recoil/emotion";
 import { Today } from "../../core/emotionsList";
 import axios from "axios";
 import { postEmotionData } from "../../api/emotion";
+import { useNavigate } from "react-router-dom";
 
 export default function Question5({ setStep }) {
   const [emotion, setEmotion] = useRecoilState(emotionData);
   const [responseData, setResponseData] = useRecoilState(responseEmotion);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    navigate("/loading");
+  }, [responseData]);
 
   const moveToStep4 = () => {
     setStep(4);

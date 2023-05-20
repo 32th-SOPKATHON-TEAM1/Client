@@ -39,6 +39,8 @@ export const GlobalStyle = createGlobalStyle`
 
     width: 36rem;
     padding: 0 1.2rem;
+
+    border-radius: 1.6rem;
   }
   menu, ol, ul {
     list-style: none;

@@ -3,13 +3,23 @@ import PrintingImg from "../@components/print/printingImg";
 import { keyframes, styled } from "styled-components";
 import BackgroundImg from "../assets/image/backgroundImg.png";
 import BackImg from "../assets/image/printerBack.png";
+import { useNavigate } from "react-router-dom";
+import { useRecoilValue } from "recoil";
+import { responseEmotion } from "../recoil/emotion";
 
 export default function Print() {
   const [isImg, setIsImg] = useState(false);
+  const navigate = useNavigate();
+
+  console.log(data);
+
   useEffect(() => {
     setTimeout(() => {
       setIsImg(true);
     }, "4000");
+    setTimeout(() => {
+      navigate("/result");
+    }, "10000");
   }, []);
   return (
     <>

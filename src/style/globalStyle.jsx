@@ -39,7 +39,10 @@ export const GlobalStyle = createGlobalStyle`
     line-height: 1;
 
     width: 36rem;
+    height: 800px;
     padding: 0 1.2rem;
+
+    border-radius: 1.6rem;
   }
   menu, ol, ul {
     list-style: none;

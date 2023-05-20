@@ -9,6 +9,7 @@ import testImg from "../assets/bomi/testImg.svg";
 
 export default function Share() {
   let { id } = useParams();
+  console.log(id);
   const [data, setData] = useState();
 
   const navigate = useNavigate();

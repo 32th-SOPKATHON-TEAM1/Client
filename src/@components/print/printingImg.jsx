@@ -1,17 +1,16 @@
 import React from "react";
 import { keyframes, styled } from "styled-components";
+import imgSrc from "../../assets/image/polaroidImg.png";
 
-export default function PrintingImg(props) {
-  const { name, imgSrc, title } = props;
+export default function PrintingImg() {
+  // const imgSrc = "https://item.kakaocdn.net/do/dbcd799aac800f6a680f1d2b04cee5688f324a0b9c48f77dbce3a43bd11ce785";
 
   return (
     <>
       <Printer />
       <PrintingImgWrapper>
-        <p>{name}의 감정사진이에요</p>
         <Polaroid>
           <Img src={imgSrc} alt="프린팅이미지" />
-          <p>{title}</p>
         </Polaroid>
       </PrintingImgWrapper>
     </>
@@ -31,10 +30,10 @@ const Printer = styled.div`
   position: absolute;
   z-index: 2;
 
-  width: 34rem;
-  height: 10rem;
+  width: 33rem;
+  height: 7rem;
 
-  background-color: blue;
+  background-color: grey;
 `;
 
 const PrintingImgWrapper = styled.section`
@@ -49,19 +48,22 @@ const PrintingImgWrapper = styled.section`
 const Polaroid = styled.article`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 
-  width: 30rem;
-  height: 40rem;
-  padding-bottom: 8rem;
+  width: 292px;
+  height: 353px;
+  padding-top: 20px;
 
-  border: 1px solid black;
+  /* width: 30rem;
+  height: 40rem;
+  padding-bottom: 8rem; */
+
+  border: 1px solid #cccccc;
 `;
 
 const Img = styled.img`
-  width: 25rem;
-  height: 25rem;
+  width: 25.2rem;
+  height: 25.2rem;
 
   border: 1px solid black;
 `;

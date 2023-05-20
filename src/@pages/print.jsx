@@ -1,21 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PrintingImg from "../@components/print/printingImg";
-import { styled } from "styled-components";
+import { keyframes, styled } from "styled-components";
 import BackgroundImg from "../assets/image/backgroundImg.png";
 import BackImg from "../assets/image/printerBack.png";
 
 export default function Print() {
+  const [isImg, setIsImg] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      setIsImg(true);
+    }, "4000");
+  }, []);
   return (
     <>
       <PrintingImg />
-      <Back src={BackImg} alt="뒤" />
+      {!isImg && <Back src={BackImg} alt="뒤" />}
       <Background />
     </>
   );
 }
 
+const Fadeout = keyframes`
+ 50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+`;
+
 const Back = styled.img`
   width: 33.6rem;
+  /* animation: ${Fadeout} 6s; */
 `;
 const Background = styled.div`
   width: 360px;

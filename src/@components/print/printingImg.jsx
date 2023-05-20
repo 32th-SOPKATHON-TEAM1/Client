@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { keyframes, styled } from "styled-components";
 import imgSrc from "../../assets/image/polaroidImg.png";
 import printerFront from "../../assets/image/printerFront.png";
 
 export default function PrintingImg() {
+  const [isImg, setIsImg] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      setIsImg(true);
+    }, "5000");
+  }, []);
+
   return (
     <>
-      <Front src={printerFront} alt="프린터앞" />
+      {!isImg && <Front src={printerFront} alt="프린터앞" />}
       <PrintingImgWrapper>
         <Polaroid>
           <Img src={imgSrc} alt="프린팅이미지" />
@@ -16,11 +23,23 @@ export default function PrintingImg() {
   );
 }
 
+const Fadeout = keyframes`
+
+ 50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+`;
+
 const Front = styled.img`
   position: absolute;
   z-index: 3;
 
   width: 33.6rem;
+
+  animation: ${Fadeout} 6s;
 `;
 
 const PrintImg = keyframes`

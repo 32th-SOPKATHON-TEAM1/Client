@@ -5,13 +5,14 @@ import getPhotoInfo from "../api/getPhotoInfo";
 
 export default function Share() {
   const [photos, setPhotos] = useState();
+  
   async function fetchPhotoInfo() {
     const response = await getPhotoInfo();
     setPhotos(response);
   }
   
   useEffect(() => {
-    fetchPhotoInfo;
+    fetchPhotoInfo();
   }, []);
   console.log(photos);
 

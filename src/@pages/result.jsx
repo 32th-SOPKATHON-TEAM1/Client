@@ -124,6 +124,4 @@ const Img = styled.img`
   height: 25rem;
 
   border: 1px solid black;
-  width: 292px;
-  height: 353px;
 `;

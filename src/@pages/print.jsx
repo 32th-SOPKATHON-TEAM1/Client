@@ -10,7 +10,6 @@ import { responseEmotion } from "../recoil/emotion";
 export default function Print() {
   const [isImg, setIsImg] = useState(false);
   const navigate = useNavigate();
-  const data = useRecoilValue(responseEmotion);
 
   console.log(data);
 
@@ -25,7 +24,7 @@ export default function Print() {
   return (
     <>
       <PrintingImg />
-      {!isImg && <Back src={data.imgUrl} alt="뒤" />}
+      {!isImg && <Back src={BackImg} alt="뒤" />}
       <Background />
     </>
   );

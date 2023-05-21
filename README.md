@@ -182,4 +182,4 @@
 - Recoil
 
 ## 🎀 시연 영상
-[마음사진관_](https://youtu.be/6MUFCCMw-OA)
+[마음사진관](https://youtu.be/6MUFCCMw-OA)
